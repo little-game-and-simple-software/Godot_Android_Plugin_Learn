@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mylibrary">
+<meta-data
+android:name="org.godotengine.plugin.v1.GodotHelloPlugin"
+android:value="com.hh128.GodotHelloPlugin.HelloGodot" />
+</manifest>
