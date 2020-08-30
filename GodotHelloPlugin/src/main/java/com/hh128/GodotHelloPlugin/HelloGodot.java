@@ -1,6 +1,7 @@
 package com.hh128.GodotHelloPlugin;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -8,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.collection.ArraySet;
 
+
+import com.simple.spiderman.SpiderMan;
 
 import org.godotengine.godot.Godot;
 import org.godotengine.godot.plugin.GodotPlugin;
@@ -21,37 +24,44 @@ import java.util.Set;
 public class HelloGodot extends GodotPlugin
 {
     //游戏主activity
-    public Activity activity=null;
-    public FrameLayout layout=null;
+    public Context MyContext;
+    public Activity activity;
+   // public Activity activity3;
+    public FrameLayout layout;
     //Godot是继承自activity的类 从这里获得activity实例
     public HelloGodot(Godot godot)
     {
         super(godot);
-        //判断godot是否为null
-        if(godot==null)
-        {
-            activity = getActivity();
-        }
-        else
-        {
-            activity=getActivity();
-        }
-
+       // MyContext=getActivity();//.getApplicationContext();
     }
     @Override
     public View onMainCreate(Activity activity2)
     {
         this.layout=new FrameLayout(activity);
+        activity=activity2;
+       // MyContext=activity2.getApplicationContext();
+        new getCtx().run();
         return this.layout;
     }
+    class getCtx extends Thread
+    {
+        @Override
+        public void run()
+        {
+            if(activity!=null)
+            {
+                MyContext=activity.getBaseContext();
+            }
+        }
 
+    }
     //返回给godot调用的方法名称 用于映射和架桥
     @NonNull
     @Override
     public List<String> getPluginMethods()
     {
 
-        return Arrays.asList(new String[]{"test","test2"});
+        return Arrays.asList(new String[]{"test","test2","test3"});
        // return Collections.singletonList("helloWorld");
     }
 
@@ -73,12 +83,18 @@ public class HelloGodot extends GodotPlugin
 
     public void test()
     {
-        Toast.makeText(activity,"我的测试",Toast.LENGTH_LONG).show();
+        Toast.makeText(MyContext,"我的测试",Toast.LENGTH_LONG).show();
      //   Toast.makeText(getActivity().getApplicationContext(),"test",Toast.LENGTH_LONG).show();
     }
     public String test2()
     {
         return "test2";
+    }
+    //新的方法使用 getActivity获得Context
+    public void test3()
+    {
+        Toast.makeText(MyContext, "test3", Toast.LENGTH_LONG).show();
+
     }
     @NonNull
     //返回安卓插件的名称
