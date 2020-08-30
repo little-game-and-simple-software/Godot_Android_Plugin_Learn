@@ -15,6 +15,7 @@ public class spiderDebug extends Application
         super.onCreate();
         SpiderMan.init(this);
         ctx=getApplicationContext();
-        Toast.makeText(ctx,"test",Toast.LENGTH_LONG).show();
+        //无效方法
+        //Toast.makeText(ctx,"test",Toast.LENGTH_LONG).show();
     }
 }

@@ -14,6 +14,8 @@ import org.godotengine.godot.plugin.GodotPlugin;
 import org.godotengine.godot.plugin.SignalInfo;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 public class HelloGodot extends GodotPlugin
@@ -25,9 +27,18 @@ public class HelloGodot extends GodotPlugin
     public HelloGodot(Godot godot)
     {
         super(godot);
-        activity=godot;
-        activity=getActivity();
+        //判断godot是否为null
+        if(godot==null)
+        {
+            activity = getActivity();
+        }
+        else
+        {
+            activity=getActivity();
+        }
+
     }
+    @Override
     public View onMainCreate(Activity activity2)
     {
         this.layout=new FrameLayout(activity);
@@ -39,7 +50,9 @@ public class HelloGodot extends GodotPlugin
     @Override
     public List<String> getPluginMethods()
     {
-        return Arrays.asList(new String[]{"test"});
+
+        return Arrays.asList(new String[]{"test","test2"});
+       // return Collections.singletonList("helloWorld");
     }
 
     @NonNull
@@ -61,8 +74,12 @@ public class HelloGodot extends GodotPlugin
     public void test()
     {
         Toast.makeText(activity,"我的测试",Toast.LENGTH_LONG).show();
+     //   Toast.makeText(getActivity().getApplicationContext(),"test",Toast.LENGTH_LONG).show();
     }
-
+    public String test2()
+    {
+        return "test2";
+    }
     @NonNull
     //返回安卓插件的名称
     @Override
