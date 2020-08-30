@@ -26,6 +26,7 @@ public class HelloGodot extends GodotPlugin
     {
         super(godot);
         activity=godot;
+        activity=getActivity();
     }
     public View onMainCreate(Activity activity2)
     {

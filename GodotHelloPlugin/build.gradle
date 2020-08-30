@@ -26,8 +26,12 @@ android {
 
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
-
+    //implementation fileTree(dir: 'libs', include: ['*.aar'])
+    //implementation fileTree(dir: 'libs', include: ['godot-lib.debug.aar'])
+    //implementation fileTree(dir: 'libs', include: ['spiderman-debug.aar'])
+    implementation "com.simple:spiderman:1.1.6"
+    implementation fileTree(dir: 'libs', include: ['godot-lib.3.2.2.stable.release.aar'])
+    //implementation "com.simple:spiderman"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
