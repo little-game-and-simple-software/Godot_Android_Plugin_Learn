@@ -79,7 +79,7 @@ public class HelloGodot extends GodotPlugin
     }
     public String get_ctx()
     {
-        return getActivity().getApplicationContext().toString();
+        return getActivity().getBaseContext().toString();
     }
     public String test2()
     {

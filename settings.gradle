@@ -1,2 +1,2 @@
-include ':GodotHelloPlugin'
+include ':GodotHelloPlugin', ':Yomob'
 rootProject.name='My Application'
