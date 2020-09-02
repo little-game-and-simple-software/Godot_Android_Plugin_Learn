@@ -39,7 +39,7 @@ public class GodotYomob extends GodotPlugin
     @Override
     public List<String> getPluginMethods()
     {
-        return Arrays.asList(new String[]{"init","showTestAd","showAd"});
+        return Arrays.asList(new String[]{"preload","init","showTestAd","enableDebug","showAd"});
         // return Collections.singletonList("helloWorld");
     }
     //广告联盟预加载

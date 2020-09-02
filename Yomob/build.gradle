@@ -3,7 +3,16 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+    packagingOptions {
+        merge 'res/values-en/values-en.xml'
+        merge 'res/values/values.xml'
+        merge 'assets/supplierconfig.json'
+        merge 'res/drawable/login_bg.xml'
+        merge 'R.txt'
+        merge 'classes.jar'
+        merge 'AndroidManifest.xml'
 
+    }
 
     defaultConfig {
         minSdkVersion 18
@@ -26,8 +35,13 @@ android {
 
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
-   // implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation fileTree(dir: 'libs', include: ['*.aar'])
+   // implementation 'androidx.appcompat:appcompat:1.2.0'
+  //  implementation fileTree(dir: 'libs', include: ['*.godot-lib.3.2.2.stable.release.aar'])
+    //implementation fileTree(dir: 'libs', include: ['*.TGSDK.1.8.9.aar'])
+    //implementation fileTree(dir: 'libs', include: ['*.TGSDKADBytedance.1.8.9.aar'])
+
+    //implementation fileTree(dir: 'libs', include: ['*.TGSDKADBaidu.1.8.9.aar'])
 
     // 添加 TGSDK 强制依赖库
     implementation 'androidx.appcompat:appcompat:1.0.0'
