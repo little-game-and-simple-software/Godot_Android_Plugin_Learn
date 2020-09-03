@@ -17,7 +17,7 @@ import java.util.List;
 public class GodotYomob extends GodotPlugin
 {
     public FrameLayout layout;
-    public String canShowAd="";
+    public String canShowAd="unknow default in init";
     public GodotYomob(Godot godot)
     {
         super(godot);
